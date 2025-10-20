@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "AI Link Guard",
+  "version": "0.2.2",
+  "description": "Annotates links in AI chat UIs with heuristics, optional VirusTotal checks, redirect expansion, and hallucinated-link detection.",
+  "action": { "default_title": "AI Link Guard" },
+  "background": { "service_worker": "src/background.js", "type": "module" },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "<all_urls>",
+    "https://*.chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://gemini.google.com/*",
+    "https://claude.ai/*",
+    "https://*.poe.com/*",
+    "https://www.perplexity.ai/*",
+    "https://perplexity.ai/*",
+    "https://www.virustotal.com/*",
+    "https://dns.google/*",
+    "https://cloudflare-dns.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://claude.ai/*",
+        "https://*.poe.com/*",
+        "https://www.perplexity.ai/*",
+        "https://perplexity.ai/*"
+      ],
+      "js": ["src/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html"
+}
