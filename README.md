@@ -7,4 +7,4 @@ Introducing a chrome extension scanner which aims to run any links that are gene
 The files in this repo are the files used to create this extension. (Will be updated upon completion, current state of files)
 
 
-# Paused
+# developing
