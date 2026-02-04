@@ -10,4 +10,12 @@ The files in this repo are the files used to create this extension. (Will be upd
 This scanner can also be applied when looking through emails. Most people don't have state of the art phishing detection on their personal inboxes. This could help prevent people from malicious actors. (finetuning this part)
 
 
-# developing emails
+# LINK SCANNER for Frontier models has been removed; Working on email link scanner portion.
+
+Go to Virustotal -> Login -> Top right click on your name -> Click API Key -> Copy API key in Chrome Extention.
+
+Only works for gmail inboxes for now.
+
+
+
+
