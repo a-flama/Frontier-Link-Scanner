@@ -1,38 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "AI Link Guard",
-  "version": "0.2.2",
-  "description": "Annotates links in AI chat UIs with heuristics, optional VirusTotal checks, redirect expansion, and hallucinated-link detection.",
-  "action": { "default_title": "AI Link Guard" },
-  "background": { "service_worker": "src/background.js", "type": "module" },
+  "name": "Email Link Guard",
+  "version": "1.0.0",
   "permissions": ["storage"],
   "host_permissions": [
-    "<all_urls>",
-    "https://*.chatgpt.com/*",
-    "https://chat.openai.com/*",
-    "https://gemini.google.com/*",
-    "https://claude.ai/*",
-    "https://*.poe.com/*",
-    "https://www.perplexity.ai/*",
-    "https://perplexity.ai/*",
-    "https://www.virustotal.com/*",
-    "https://dns.google/*",
-    "https://cloudflare-dns.com/*"
+    "https://mail.google.com/*",
+    "https://outlook.live.com/*",
+    "https://www.virustotal.com/*"
   ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Setup Email Link Guard"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": [
-        "https://*.chatgpt.com/*",
-        "https://chat.openai.com/*",
-        "https://gemini.google.com/*",
-        "https://claude.ai/*",
-        "https://*.poe.com/*",
-        "https://www.perplexity.ai/*",
-        "https://perplexity.ai/*"
+        "https://mail.google.com/*",
+        "https://outlook.live.com/*"
       ],
-      "js": ["src/content.js"],
+      "js": ["content.js"],
       "run_at": "document_idle"
     }
-  ],
-  "options_page": "options.html"
+  ]
 }
